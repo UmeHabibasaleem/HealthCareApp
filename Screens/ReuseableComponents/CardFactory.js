@@ -1,8 +1,10 @@
 import React from 'react';
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
+import { useNavigation } from '@react-navigation/native';
+
 
 const CardFactory = ({myresult}) => {
-
+    const navigation = useNavigation();
     return (<Card>
             <CardImage
                 source= {{uri: myresult.picture}}
@@ -21,7 +23,8 @@ const CardFactory = ({myresult}) => {
                     color="#FEB557"
                 />
                 <CardButton
-                    onPress={() => {}}
+                    onPress={() => {navigation.navigate('Project Detail', { screen: 'Project Detail' },
+                        {pic:myresult.picture, tit:myresult.title})}}
                     title="Explore"
                     color="#FEB557"
                 />

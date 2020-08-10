@@ -1,11 +1,15 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import {StyleSheet,FlatList} from 'react-native';
 import { Chip } from 'react-native-paper';
 import Mycards from '../Components/cards';
 import ProjectsApi from '../api/ProjectsApi';
+import SelectableChips from 'react-native-chip/SelectableChips'
+
+
 const ListScreen = () => {
 
     const [fetchResponse,result,isLoading] = ProjectsApi();
+    const [Selected, setSelected] = useState(false);
     const dataSource = [
         "ALL",
         "HIPA",
@@ -15,7 +19,7 @@ const ListScreen = () => {
         "SMART ON FHIR"
         ]
     return (<>
-        <FlatList
+            <FlatList
         horizontal = {true}
         showsHorizontalScrollIndicator = {false}
         data = {dataSource}
@@ -24,13 +28,16 @@ const ListScreen = () => {
             return (
                     <Chip
                         key={item.name}
-                        mode="outlined"
+                        selected = {false}
+                        selectedColor = "red"
                         height={35}
                         textStyle={{ color:'white',fontSize: 15 }}
-                        style={{ backgroundColor:'#1e90ff',marginHorizontal:5, marginVertical:10 }}
+                        style={{ backgroundColor :'#808080',marginHorizontal:5, marginVertical:10 }}
                         onPress={() =>{
+                            setSelected(true)
                             fetchResponse({item})
-                        }}>
+                        }}
+                        >
                         {item}
                     </Chip>
             );
