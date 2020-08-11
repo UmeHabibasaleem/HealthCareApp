@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation} from '@react-navigation/native';
 
 
 const CardFactory = ({myresult}) => {
@@ -13,7 +13,6 @@ const CardFactory = ({myresult}) => {
             <CardTitle
                 subtitle={myresult.subtitle}
             />
-            <CardContent text="Description" />
             <CardAction
                 separator={true}
                 inColumn={false}>
@@ -23,9 +22,9 @@ const CardFactory = ({myresult}) => {
                     color="#FEB557"
                 />
                 <CardButton
-                    onPress={() => {navigation.navigate('Project Detail', { screen: 'Project Detail' },
-                        {pic:myresult.picture, tit:myresult.title})}}
-                    title="Explore"
+                    onPress={() => {navigation.navigate('Project Detail', { screen: 'Project_Detail' , params: {
+                        myresult }})}}
+                    title="Detail"
                     color="#FEB557"
                 />
             </CardAction>

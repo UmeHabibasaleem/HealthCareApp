@@ -13,7 +13,7 @@ export default () => {
         if (typeof (category) === "string" || (typeof (category) === "object"  && (category.item ==='ALL')))
         {
             try{
-                const res = await axios.get('http://192.168.8.100:3000/Projects')
+                const res = await axios.get('http://192.168.8.104:3000/Projects')
                 const temp = res.data.users;
                 setResults(temp);
                 setIsLoading(false);
@@ -25,7 +25,7 @@ export default () => {
         {
             resultCategory = (category.item);
             try{
-                const res = await axios.get('http://192.168.8.100:3000/Projects')
+                const res = await axios.get('http://192.168.8.104:3000/Projects')
                 const temp = res.data.users;
                 const CategoryWise = temp.filter( (list) => list.category ===  resultCategory)
                 setResults( CategoryWise);

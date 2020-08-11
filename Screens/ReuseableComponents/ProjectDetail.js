@@ -1,28 +1,23 @@
 import  React from 'react';
-import { Text,View,ActivityIndicator, StyleSheet,FlatList } from 'react-native';
-import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
-import { NavigationContainer } from '@react-navigation/native';
-
-const ProjectDetail = ({route}) => {
-    const pic  = route.pic;
-    console.log(pic);
-  //  const { params } = this.props.navigation.state;
-   // const itemId = params ? params.pic : null;
-   // console.log(itemId)
-   // const otherParam = params ? params.tit : null;
-
-    return (<Card>
-            <CardImage
-              //  source= {{uri: myresult.picture}}
-                title= "hi detail"
-            />
-            <CardTitle
-                subtitle= "Hi subtitle"
-            />
-            <CardContent text="Description" />
+import { Text,View, StyleSheet,Image } from 'react-native';
+import {useRoute } from '@react-navigation/native';
 
 
-        </Card>
+const ProjectDetail = () => {
+    const route = useRoute();
+    const Detail_result =  route.params.myresult;
+
+
+    return (<View style = {styles.viewStyle}>
+            <View style = {{flex: 1}}>
+                <Image source = {{uri: Detail_result.picture}} style = {styles.imageStyle}/>
+            </View>
+           <View style = {{flex: 2}}>
+               <Text style = {styles.titleStyle}>{Detail_result.title}</Text>
+               <Text style = {styles.descriptionTextStyle}>{Detail_result.Description}</Text>
+           </View>
+
+            </View>
     )
 
 };
@@ -32,6 +27,25 @@ const ProjectDetail = ({route}) => {
 
 
 const styles = StyleSheet.create({
+         viewStyle: {
+               flex:1,
+               margin: 10
+           },
+         imageStyle:{
+
+               height:164,
+               width:340
+           },
+         titleStyle:{
+               fontSize:25,
+               fontWeight:'bold',
+                margin: 5
+           },
+         descriptionTextStyle:{
+               fontSize:15,
+                margin: 5,
+             textAlign:'justify'
+         }
 
 
 })
