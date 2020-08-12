@@ -1,8 +1,10 @@
 # HealthCareApp
 This App is working with Mock API.
 I have used the Mockoon (https://mockoon.com/) for creating and running Moack API.
-THe used API is given below.
-   {
+THe used API is given below.  
+
+
+{
   "users": [
       {
         "Id": "123343",
@@ -55,6 +57,6 @@ THe used API is given below.
          "Description": "A folkloric quotation, often attributed to—but almost certainly not first formulated by—Edsger Dijkstra, states that 'computer science is no more about computers than astronomy is about telescopes.'"
       }
     
-  ]
-  
-}
+  ],
+  "total": "{{queryParam 'total' '10'}}"
+} 
