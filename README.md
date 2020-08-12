@@ -57,6 +57,5 @@ THe used API is given below.
          "Description": "A folkloric quotation, often attributed to—but almost certainly not first formulated by—Edsger Dijkstra, states that 'computer science is no more about computers than astronomy is about telescopes.'"
       }
     
-  ],
-  "total": "{{queryParam 'total' '10'}}"
+  ]
 } 
