@@ -1,17 +1,36 @@
-import React,{useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, View,ScrollView,StyleSheet,Image,Button,
     TouchableOpacity ,TextInput,KeyboardAvoidingView} from 'react-native';
 import Submit from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/Entypo';
+import Temp from '../ReuseableComponents/temp';
+import axios from 'axios';
 
 
 const ContactScreen = () => {
 
-   const [name, setName] = useState('');
-   const [email, setEmail] = useState('');
-   const [message, setMessage] = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
     const [value, onChangeText] = React.useState('');
 
+       const params = {};
+
+   const submit =async (name, email, message) => {
+        const params1 = {"name" : name.name, "email": email.email, "message":message.message}
+        setName('');
+        setEmail('');
+        setMessage('');
+        console.log(JSON.stringify(params1));
+       try{
+            let res = await axios.post('http://192.168.8.100:3000/posts', params1);
+            window.alert(res);
+            console.log(res.data);
+         }
+      catch(err){
+          window.alert(err)
+      }
+   }
     return (
         <ScrollView style = {{backgroundColor:'#dcdcdc'}}>
         <KeyboardAvoidingView style={{ flex: 1, flexDirection: 'column',}}
@@ -44,7 +63,8 @@ const ContactScreen = () => {
                            onChangeText={text => setMessage(text)}
                            value={message}
                 />
-                <TouchableOpacity onPress={() =>{ }}>
+
+                <TouchableOpacity onPress={() => submit({name},{email},{message})}>
                 <Submit name = "md-arrow-redo-circle"   size={50} style = {styles.submitStyle}/>
                 </TouchableOpacity>
                 </ScrollView>

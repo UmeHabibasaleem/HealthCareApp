@@ -9,8 +9,8 @@ export default () => {
 
     const fetchResponse = async (category  ) => {
         try {
-            const res = await axios.get('http://192.168.8.100:3000/Projects')
-            const temp = res.data.users;
+            const res = await axios.get('http://192.168.8.100:3000/users')
+            const temp = res.data;
             if (category === 'ALL') {
                 setResults(temp)
             } else {
