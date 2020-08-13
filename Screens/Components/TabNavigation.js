@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
 export default function TabApp() {
     return (
         <NavigationContainer>
-            <Stack.Navigator  screenOptions={{ headerStyle: { backgroundColor: '#dcdcdc'} ,headerTitleStyle: { alignSelf: 'center' }}}>
+            <Stack.Navigator  screenOptions={{ headerStyle: { backgroundColor: '#00bfff'} ,headerTitleStyle: { alignSelf: 'center' }}}>
                 <Stack.Screen name="TECHNOSOFT" component={MyTabBar} />
                 <Stack.Screen name="Project Detail" component={MyStack}/>
             </Stack.Navigator>
