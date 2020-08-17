@@ -26,44 +26,45 @@ function MyStack(){
 
 function MyTabBar() {
     return (
-        <Tab.Navigator >
+        <Tab.Navigator  tabBarOptions={{
+            activeTintColor: '#00bfff',
+            inactiveTintColor: 'black'
+
+        }}>
             <Tab.Screen name="Projects" component={ListScreen } options={{
-               tabBarLabel: () => (
-                   <Text style={styles.tabBarLabelStyle}> Projects </Text>
+               tabBarLabel: ({ focused }) => (
+                   <Text style={{textAlign: 'center', fontSize: 15, color: focused ? '#00bfff' : '#000'}}> Projects </Text>
                ),
-                tabBarIcon: () => (
-                    <ProjectIcon name="project" size={20}/>
+                tabBarIcon: ({ color, focused }) => (
+                    <ProjectIcon name="project" size={20} focused={focused}
+                                 color={color}/>
                 )
             }} />
             <Tab.Screen name="About" component={AboutScreen }options={{
-                tabBarLabel: () => (
-                    <Text style={styles.tabBarLabelStyle}> About </Text>
+                tabBarLabel: ({ focused }) => (
+                    <Text style={{textAlign: 'center', fontSize: 15, color: focused ? '#00bfff' : '#000'}}> About </Text>
                 ),
-                tabBarIcon: () => (
-                    <AboutIcon name="team" size={20}/>
+                tabBarIcon: ({ color, focused }) => (
+                    <AboutIcon name="team" size={20} focused={focused}
+                               color={color}/>
                 )
             }} />
 
             <Tab.Screen name="Contact" component={ContactScreen} options={{
-                tabBarLabel: () => (
-                    <Text style={styles.tabBarLabelStyle}> Contact </Text>
+
+                tabBarLabel: ({ focused }) => (
+                    <Text style={{textAlign: 'center', fontSize: 15, color: focused ? '#00bfff' : '#000'}}> Contact </Text>
                 ),
-                tabBarIcon: () => (
-                    <Icon name="phone" size={20} />
-                )
+                tabBarIcon: ({ color, focused }) => (
+                    <Icon name="phone" size={20} focused={focused}
+                          color={color}/>)
             }} />
+
+
         </Tab.Navigator>
     );
 }
 const styles = StyleSheet.create({
-    tabBarLabelStyle:{
-        fontSize: 12 ,
-
-        color: 'black',
-        fontWeight: 'bold'
-    }
-
-
 
 });
 export default function TabApp() {

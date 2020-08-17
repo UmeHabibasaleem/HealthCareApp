@@ -8,7 +8,7 @@ const CardFactory = ({myresult}) => {
     return (<Card>
             <CardImage
                 source= {{uri: myresult.picture}}
-                title={myresult.title}
+                title ={myresult.title}
             />
             <CardTitle
                 subtitle={myresult.subtitle}
@@ -19,13 +19,13 @@ const CardFactory = ({myresult}) => {
                 <CardButton
                     onPress={() => {}}
                     title="Share"
-                    color="#FEB557"
+                    color="#00bfff"
                 />
                 <CardButton
                     onPress={() => {navigation.navigate('Project Detail', { screen: 'Project_Detail' , params: {
                         myresult }})}}
                     title="Detail"
-                    color="#FEB557"
+                    color="#00bfff"
                 />
             </CardAction>
         </Card>

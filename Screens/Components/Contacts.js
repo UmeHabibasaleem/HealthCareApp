@@ -12,19 +12,16 @@ const ContactScreen = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const [value, onChangeText] = React.useState('');
 
-       const params = {};
-
-   const submit =async (name, email, message) => {
-        const params1 = {"name" : name.name, "email": email.email, "message":message.message}
+    const submit =async (name, email, message) => {
+        const params = {"name" : name.name, "email": email.email, "message":message.message}
         setName('');
         setEmail('');
         setMessage('');
-        console.log(JSON.stringify(params1));
+
        try{
-            let res = await axios.post('http://192.168.8.100:3000/posts', params1);
-            window.alert(res);
+            let res = await axios.post('http://192.168.8.100:3000/posts', params);
+            window.alert("Message send successfully");
             console.log(res.data);
          }
       catch(err){
@@ -32,7 +29,8 @@ const ContactScreen = () => {
       }
    }
     return (
-        <ScrollView style = {{backgroundColor:'#dcdcdc'}}>
+        <ScrollView  showsVerticalScrollIndicator={false}
+                     style = {{backgroundColor:'#dcdcdc'}}>
         <KeyboardAvoidingView style={{ flex: 1, flexDirection: 'column',}}
                               behavior="height"   enabled keyboardVerticalOffset={100}>
 
@@ -40,7 +38,7 @@ const ContactScreen = () => {
             <Image source={require('../assets/Images/contact.jpg')} style={styles.imageStyle}/>
 
                 <View style = {styles.formViewStyle}>
-                <ScrollView style = {{flexGrow: 1}}>
+                <ScrollView showsVerticalScrollIndicator={false} style = {{flexGrow: 1}}>
                 <Text style = {styles.lableStyle}>Name:</Text>
                 <TextInput style = {styles.inputs}
                            autoCapitalize = "none"
@@ -69,8 +67,8 @@ const ContactScreen = () => {
                 </TouchableOpacity>
                 </ScrollView>
                 </View>
-            <Text style = {{marginLeft: 150, fontSize: 15,marginTop: 10}}>Follow us on:</Text>
-            <View style={{flexDirection: 'row',marginTop: 10,marginHorizontal: 50, backgroundColor:'#dcdcdc',flex:1 }}>
+            <Text style = {styles.followStyle}>Follow us on:</Text>
+            <View style={styles.iconViewStyle}>
 
             <Icon name = "facebook-with-circle"   size={50} style = {styles.iconsStyle}/>
             <Icon name = "twitter-with-circle"   size={50} style = {styles.iconsStyle}/>
@@ -131,7 +129,19 @@ const styles = StyleSheet.create({
 
         marginLeft: 40,
         color: '#00bfff'
-    }
+    },
+    iconViewStyle:{
+        flexDirection: 'row',
+        marginTop: 10,
+        marginHorizontal: 50,
+        backgroundColor:'#dcdcdc',
+        flex:1 },
+    followStyle:{
+        marginLeft: 150,
+        fontSize: 15,
+        marginTop: 10}
+
+
 });
 
 export default ContactScreen;
