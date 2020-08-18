@@ -24,6 +24,8 @@ function MyStack(){
     )
 }
 
+
+
 function MyTabBar() {
     return (
         <Tab.Navigator  tabBarOptions={{

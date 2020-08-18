@@ -9,13 +9,13 @@
 import React from 'react';
 import TabApp from './Screens/Components/TabNavigation';
 import 'react-native-gesture-handler';
-import UselessTextInputMultiline from './Screens/ReuseableComponents/temp';
+import MyExample from './Screens/ReuseableComponents/temp';
 
 
 const App = () => {
   return (
     <>
-    <TabApp />
+    < TabApp/>
     </>
   );
 };

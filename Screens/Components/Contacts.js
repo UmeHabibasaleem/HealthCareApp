@@ -20,7 +20,7 @@ const ContactScreen = () => {
         setMessage('');
 
        try{
-            let res = await axios.post('http://192.168.8.100:3000/posts', params);
+            let res = await axios.post('http://192.168.8.101:3000/posts', params);
             window.alert("Message send successfully");
             console.log(res.data);
          }
